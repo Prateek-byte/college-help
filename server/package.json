@@ -1,7 +1,12 @@
 {
   "name": "college-help-server",
+  "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
@@ -10,6 +15,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2",
     "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
-// sjfns m svsvs  
