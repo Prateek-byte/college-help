@@ -5,14 +5,17 @@ import { Box, Paper, Typography, TextField, Button } from "@mui/material";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const login = async () => {
-    const res = await axios.post("http://localhost:5000/api/auth/login", {
-      email,
-      password,
-    });
-    localStorage.setItem("token", res.data.token);
-    window.location.href = "/feed";
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      localStorage.setItem("token", res.data.token);
+      window.location.href = "/feed";
+    } catch (err) {
+      const msg = err.response?.data?.error || "Login failed";
+      setError(msg);
+    }
   };
 
   return (
@@ -26,6 +29,7 @@ export default function Login() {
         <Typography variant="h5" mb={2} align="center">
           Login
         </Typography>
+        {error && <Typography color="error" align="center" mb={2}>{error}</Typography>}
         <TextField
           fullWidth
           label="Email"
