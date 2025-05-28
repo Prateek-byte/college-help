@@ -18,6 +18,7 @@ import {
   Box,
 } from "@mui/material";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Feed from "./pages/Feed";
 import Chat from "./pages/Chat";
 
@@ -66,6 +67,7 @@ function App() {
           <Container maxWidth="md">
             <Routes>
               <Route path="/" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route
                 path="/feed"
                 element={
