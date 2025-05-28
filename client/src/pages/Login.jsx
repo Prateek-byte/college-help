@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { Box, Paper, Typography, TextField, Button } from "@mui/material";
+import { Box, Paper, Typography, TextField, Button, Link } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -50,6 +51,11 @@ export default function Login() {
         <Button variant="contained" fullWidth onClick={login}>
           Login
         </Button>
+        <Box textAlign="center" mt={2}>
+          <Link component={RouterLink} to="/register">
+            Don’t have an account? Sign up
+          </Link>
+        </Box>
       </Paper>
     </Box>
   );
